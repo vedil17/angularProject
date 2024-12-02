@@ -15,4 +15,12 @@ export class RolesComponent {
   currentDate : Date = new Date();
   inputType: string = "radio";
   selectedState : string = '';
+
+  showAlertMessage() {
+    alert("Welcome to Angular 19");
+  }
+
+  showMessage(message: string) {
+    alert(message);
+  }
 }
