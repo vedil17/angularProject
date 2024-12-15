@@ -1,26 +1,27 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { APIResponseModel, IRole } from '../../model/class/interface/role';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-roles',
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './roles.component.html',
   styleUrl: './roles.component.css'
 })
-export class RolesComponent {
-  firstname: string = "Angular tutorial";
-  angularVersion = "Version 19";
-  version : number = 19;
-  isActive : boolean = false;
-  currentDate : Date = new Date();
-  inputType: string = "radio";
-  selectedState : string = '';
+export class RolesComponent implements OnInit{
 
-  showAlertMessage() {
-    alert("Welcome to Angular 19");
-  }
+  rolesList: IRole [] = [];
+  http = inject(HttpClient);
 
-  showMessage(message: string) {
-    alert(message);
-  }
+ngOnInit(): void {
+  this.getAllRoles()
+}
+
+getAllRoles() {
+  this.http.get<APIResponseModel>("https://freeapi.miniprojectideas.com/api/ClientStrive/GetAllRoles").subscribe((res:APIResponseModel) => {
+    this.rolesList = res.data;
+  })
+}
 }

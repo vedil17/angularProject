@@ -1,46 +1,18 @@
-<p>roles works!</p>
-
 <div class="row">
-    <div class="col-3">
-        <p>{{firstname}}</p>
-    </div>
-    <div class="col-3">
-        <p>{{version}}</p>
-    </div>
-    <div class="col-3">
-        <p>{{currentDate}}</p>
-    </div>
-    <div class="col-3">
-        <p>{{selectedState}}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-3">
-        <input type="text" [value]="firstname" class="form-control"/>
-    </div>
-    <div class="col-3">
-        <input type="text" [(ngModel)]="firstname"/>
-    </div>
-    <div class="col-3">
-        <input [type]="inputType"/>
-    </div>
-    <div class="col-3">
-        <select [(ngModel)]="selectedState">
-            <option value="a">a</option>
-            <option value="b">b</option>
-            <option value="c">c</option>
-        </select>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-3">
-        <button class="btn btn-success" (click)="showAlertMessage()">Show Alert</button>
-    </div>
-    <div class="col-3">
-        <button class="btn btn-success" (click)="showMessage('Welcome React')">Show React Msg</button>
-    </div>
-    <div class="col-3">
-        <button class="btn btn-success" (click)="showMessage('Welcome Angular')">Show Angular Msg</button>
+    <div class="col-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Role Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of rolesList">
+                    <td>{{item.roleId}}</td>
+                    <td>{{item.role}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
