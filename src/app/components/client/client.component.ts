@@ -7,7 +7,7 @@ import { DatePipe, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-client',
-  imports: [FormsModule,UpperCasePipe,DatePipe],
+  imports: [FormsModule,UpperCasePipe, DatePipe],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
